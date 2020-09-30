@@ -1,0 +1,27 @@
+{
+  "name": "designing-react-components-techniques-and-bp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plamenkoyovchev/designing-react-components-techniques-and-bp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plamenkoyovchev/designing-react-components-techniques-and-bp/issues"
+  },
+  "homepage": "https://github.com/plamenkoyovchev/designing-react-components-techniques-and-bp#readme",
+  "dependencies": {
+    "next": "^9.5.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
