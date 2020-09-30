@@ -6,7 +6,7 @@ const Speakers = ({ speakers }) => {
     <div>
       {speakers &&
         speakers.map(({ imageSrc, name }) => (
-          <img src={`images/${imageSrc}.png`} title={name} />
+          <img src={`images/${imageSrc}.png`} title={name} key={imageSrc} />
         ))}
     </div>
   );
