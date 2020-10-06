@@ -1,15 +1,12 @@
 import React from "react";
+import SpeakerFavoriteButton from "../SpeakerFavoriteButton/SpeakerFavoriteButton";
 
 const Speaker = ({ id, firstName, lastName, bio, isFavorite }) => {
   return (
     <div className="rounded overflow-hidden shadow-lg p-6" key={id}>
       <div className="grid grid-cols-4 mb-6">
         <div className="font-bold text-lg col-span-3">{`${firstName} ${lastName}`}</div>
-        <div className="flex justify-end">
-          <div
-            className={isFavorite ? "heartredbutton" : "heartdarkbutton"}
-          ></div>
-        </div>
+        <SpeakerFavoriteButton isFavorite={isFavorite} />
       </div>
       <div className="mb-6">
         <img
