@@ -3,8 +3,30 @@ import withData from "../HOCs/withData";
 import Searchbar from "../Searchbar/Searchbar";
 import Speaker from "../Speaker/Speaker";
 
-const Speakers = ({ speakers }) => {
+const Speakers = ({ speakers: speakersArray }) => {
+  const [speakers, setSpeakers] = useState(speakersArray);
   const [speakersQuery, setSpeakersQuery] = useState("");
+
+  const toggleFavoriteSpeaker = (speaker) => {
+    return {
+      ...speaker,
+      isFavorite: !speaker.isFavorite,
+    };
+  };
+
+  const onToggleFavoriteSpeakerHandler = (speaker) => {
+    const newSpeaker = toggleFavoriteSpeaker(speaker);
+    const speakerToUpdateIndex = speakers
+      .map((speaker) => speaker.id)
+      .indexOf(speaker.id);
+
+    const newSpeakers = [
+      ...speakers.slice(0, speakerToUpdateIndex),
+      newSpeaker,
+      ...speakers.slice(speakerToUpdateIndex + 1),
+    ];
+    setSpeakers(newSpeakers);
+  };
 
   const filterSpeaker = ({ firstName, lastName }) => {
     return (
@@ -23,7 +45,15 @@ const Speakers = ({ speakers }) => {
         {speakers &&
           speakers
             .filter(filterSpeaker)
-            .map((speaker) => <Speaker key={speaker.id} {...speaker} />)}
+            .map((speaker) => (
+              <Speaker
+                key={speaker.id}
+                {...speaker}
+                onFavoriteClicked={() =>
+                  onToggleFavoriteSpeakerHandler(speaker)
+                }
+              />
+            ))}
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
 import React from "react";
 
-const SpeakerFavoriteButton = ({ isFavorite }) => {
+const SpeakerFavoriteButton = ({ isFavorite, onFavoriteClicked }) => {
   return (
     <div className="flex justify-end">
-      <div className={isFavorite ? "heartredbutton" : "heartdarkbutton"}></div>
+      <div
+        className={isFavorite ? "heartredbutton" : "heartdarkbutton"}
+        onClick={onFavoriteClicked}
+      ></div>
     </div>
   );
 };
