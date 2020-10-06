@@ -1,5 +1,6 @@
 import React from "react";
 import SpeakerFavoriteButton from "../SpeakerFavoriteButton/SpeakerFavoriteButton";
+import SpeakerImage from "../SpeakerImage/SpeakerImage";
 
 const Speaker = ({ id, firstName, lastName, bio, isFavorite }) => {
   return (
@@ -9,10 +10,7 @@ const Speaker = ({ id, firstName, lastName, bio, isFavorite }) => {
         <SpeakerFavoriteButton isFavorite={isFavorite} />
       </div>
       <div className="mb-6">
-        <img
-          src={`/speakers/speaker-${id}.jpg`}
-          alt={`${firstName} ${lastName}`}
-        />
+        <SpeakerImage id={id} firstName={firstName} lastName={lastName} />
       </div>
       <div className="text-gray-600">{bio.substr(0, 70) + "..."}</div>
     </div>
