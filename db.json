@@ -24,7 +24,7 @@
       "lastName": "Chuvyrov",
       "sat": true,
       "sun": false,
-      "isFavorite": true,
+      "isFavorite": false,
       "bio": "Eugene Chuvyrov is  a Senior Cloud Architect at Microsoft. He works directly with both startups and enterprises to enable their solutions in Microsoft cloud, and to make Azure better as a result of this work with partners."
     },
     {
@@ -33,7 +33,7 @@
       "lastName": "Crockford",
       "sat": true,
       "sun": false,
-      "isFavorite": false,
+      "isFavorite": true,
       "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma."
     },
     {
@@ -42,14 +42,14 @@
       "lastName": "Everitt",
       "sat": true,
       "sun": true,
-      "isFavorite": true,
+      "isFavorite": false,
       "bio": "Paul is the PyCharm and WebStorm Developer Advocate at JetBrains. Before that, Paul was a partner at Agendaless Consulting and co-founder of Zope Corporation, taking the first open source application server through $14M of funding."
     },
     {
       "id": 1269,
       "firstName": "Arun",
       "lastName": "Gupta",
-      "isFavorite": true,
+      "isFavorite": false,
       "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
       "sat": false,
       "sun": true
