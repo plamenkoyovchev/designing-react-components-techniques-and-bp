@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "fakeapi": "json-server --watch db.json --port 3004"
   },
   "repository": {
     "type": "git",
