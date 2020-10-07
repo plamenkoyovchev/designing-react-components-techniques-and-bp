@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+import axios from "axios";
 import withData from "../HOCs/withData";
 import Searchbar from "../Searchbar/Searchbar";
 import Speaker from "../Speaker/Speaker";
 
-const Speakers = ({ speakers: speakersArray }) => {
-  const [speakers, setSpeakers] = useState(speakersArray);
+const Speakers = () => {
+  const [speakers, setSpeakers] = useState([]);
   const [speakersQuery, setSpeakersQuery] = useState("");
+
+  useEffect(() => {
+    const fetchSpeakers = async () => {
+      const response = await axios.get("http://localhost:3004/speakers");
+      setSpeakers(response.data);
+    };
+
+    fetchSpeakers();
+  }, []);
 
   const toggleFavoriteSpeaker = (speaker) => {
     return {
@@ -14,11 +25,13 @@ const Speakers = ({ speakers: speakersArray }) => {
     };
   };
 
-  const onToggleFavoriteSpeakerHandler = (speaker) => {
+  const onToggleFavoriteSpeakerHandler = async (speaker) => {
     const newSpeaker = toggleFavoriteSpeaker(speaker);
     const speakerToUpdateIndex = speakers
       .map((speaker) => speaker.id)
       .indexOf(speaker.id);
+
+    await axios.put(`http://localhost:3004/speakers/${speaker.id}`, newSpeaker);
 
     const newSpeakers = [
       ...speakers.slice(0, speakerToUpdateIndex),
