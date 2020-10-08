@@ -5,8 +5,8 @@ import withData from "../HOCs/withData";
 import Searchbar from "../Searchbar/Searchbar";
 import Speaker from "../Speaker/Speaker";
 
-import speakersReducer from "../../reducers/request";
-import { actionTypes } from "../../actions/request";
+import speakersReducer from "../../store/speakers/reducer";
+import { actionTypes } from "../../store/speakers/actions";
 
 const Speakers = () => {
   const [{ speakers, loading, error }, dispatch] = useReducer(speakersReducer, {

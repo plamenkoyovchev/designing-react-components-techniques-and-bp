@@ -1,4 +1,4 @@
-import { actionTypes } from "../actions/request";
+import { actionTypes } from "./actions";
 
 const speakersReducer = (state, action) => {
     switch (action.type) {
