@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { compose } from "recompose";
 import withMessage from "../HOCs/withMessage";
 
 import withRequest from "../HOCs/withRequest";
@@ -57,6 +58,11 @@ const Speakers = ({ records: speakers, loading, error, put, message }) => {
   );
 };
 
-export default withMessage(
-  withRequest("http://localhost:3004", "speakers")(Speakers)
-);
+export default compose(
+  withRequest("http://localhost:3004", "speakers"),
+  withMessage
+)(Speakers);
+
+// export default withMessage(
+//   withRequest("http://localhost:3004", "speakers")(Speakers)
+// );
