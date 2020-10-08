@@ -1,65 +1,17 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useState } from "react";
 
-import axios from "axios";
-import withData from "../HOCs/withData";
+import withRequest from "../HOCs/withRequest";
 import Searchbar from "../Searchbar/Searchbar";
 import Speaker from "../Speaker/Speaker";
 
-import speakersReducer from "../../store/speakers/reducer";
-import { actionTypes } from "../../store/speakers/actions";
-
-const Speakers = () => {
-  const [{ speakers, loading, error }, dispatch] = useReducer(speakersReducer, {
-    speakers: [],
-    loading: false,
-    error: "",
-  });
+const Speakers = ({ records: speakers, loading, error, put }) => {
   const [speakersQuery, setSpeakersQuery] = useState("");
 
-  useEffect(() => {
-    const fetchSpeakers = async () => {
-      try {
-        dispatch({ type: actionTypes.FETCH_SPEAKERS_START });
-        const response = await axios.get("http://localhost:3004/speakers");
-        dispatch({
-          type: actionTypes.FETCH_SPEAKERS_SUCCESS,
-          payload: response.data,
-        });
-      } catch {
-        dispatch({
-          type: actionTypes.FETCH_SPEAKERS_FAILED,
-          payload: "Unable to get speakers",
-        });
-      }
-    };
-
-    fetchSpeakers();
-  }, []);
-
-  const toggleFavoriteSpeaker = (speaker) => {
-    return {
+  const onToggleFavoriteSpeakerHandler = (speaker) => {
+    put({
       ...speaker,
       isFavorite: !speaker.isFavorite,
-    };
-  };
-
-  const onToggleFavoriteSpeakerHandler = async (speaker) => {
-    const newSpeaker = toggleFavoriteSpeaker(speaker);
-    try {
-      await axios.put(
-        `http://localhost:3004/speakers/${speaker.id}`,
-        newSpeaker
-      );
-      dispatch({
-        type: actionTypes.UPDATE_SPEAKERS_SUCCESS,
-        payload: newSpeaker,
-      });
-    } catch {
-      dispatch({
-        type: actionTypes.UPDATE_SPEAKERS_FAILED,
-        payload: "Unable to toggle favorite speaker",
-      });
-    }
+    });
   };
 
   const filterSpeaker = ({ firstName, lastName }) => {
@@ -95,4 +47,4 @@ const Speakers = () => {
   );
 };
 
-export default withData(Speakers);
+export default withRequest("http://localhost:3004", "speakers")(Speakers);
