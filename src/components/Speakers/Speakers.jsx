@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { compose } from "recompose";
-import withMessage from "../HOCs/withMessage";
+import React, { useState, useContext } from "react";
+import { DataContext, DataProvider } from "../../contexts/DataContext";
 
-import withRequest from "../HOCs/withRequest";
 import Searchbar from "../Searchbar/Searchbar";
 import Speaker from "../Speaker/Speaker";
 
-const Speakers = ({ records: speakers, loading, error, put, message }) => {
+const SpeakersComponent = () => {
   const [speakersQuery, setSpeakersQuery] = useState("");
+  const { records: speakers, loading, error, put } = useContext(DataContext);
+
+  const message = "";
 
   const onToggleFavoriteSpeakerHandler = (speaker) => {
     put({
@@ -58,11 +59,12 @@ const Speakers = ({ records: speakers, loading, error, put, message }) => {
   );
 };
 
-export default compose(
-  withRequest("http://localhost:3004", "speakers"),
-  withMessage
-)(Speakers);
+const Speakers = (props) => {
+  return (
+    <DataProvider baseUrl="http://localhost:3004" pathName="speakers">
+      <SpeakersComponent {...props}></SpeakersComponent>
+    </DataProvider>
+  );
+};
 
-// export default withMessage(
-//   withRequest("http://localhost:3004", "speakers")(Speakers)
-// );
+export default Speakers;
