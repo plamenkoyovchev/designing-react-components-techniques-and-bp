@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "fakeapi": "json-server --watch db.json --port 3004"
+    "fakeapi": "json-server --watch db.json --port 3004 --delay 500"
   },
   "repository": {
     "type": "git",
