@@ -4,19 +4,15 @@
       "id": 1530,
       "firstName": "Tamara",
       "lastName": "Baker",
-      "sat": false,
-      "sun": true,
-      "isFavorite": false,
-      "bio": "Tammy has held a number of executive and management roles over the past 15 years, including VP engineering Roles at Molekule Inc., Cantaloupe Systems, E-Color, and Untangle Inc."
+      "bio": "Tammy has held a number of executive and management roles over the past 15 years, including VP engineering Roles at Molekule Inc., Cantaloupe Systems, E-Color, and Untangle Inc.",
+      "isFavorite": false
     },
     {
       "id": 5996,
       "firstName": "Craig",
       "lastName": "Berntson",
-      "isFavorite": true,
       "bio": "Craig has a passion for community and helping other developers improve their skills. He writes the column \"Software Gardening\" in DotNet Curry Magazine and is the co-author of \"Continuous Integration in .NET\" available from Manning.",
-      "sat": true,
-      "sun": true
+      "isFavorite": false
     },
     {
       "id": 10803,

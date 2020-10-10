@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useCallback } from "react";
 import { DataContext, DataProvider } from "../../contexts/DataContext";
 
 import Searchbar from "../Searchbar/Searchbar";
@@ -10,12 +10,15 @@ const SpeakersComponent = () => {
 
   const message = "";
 
-  const onToggleFavoriteSpeakerHandler = (speaker) => {
-    put({
-      ...speaker,
-      isFavorite: !speaker.isFavorite,
-    });
-  };
+  const onToggleFavoriteSpeakerHandler = useCallback(
+    (speaker) => {
+      put({
+        ...speaker,
+        isFavorite: !speaker.isFavorite,
+      });
+    }, 
+    []
+  );
 
   const filterSpeaker = ({ firstName, lastName }) => {
     return (
@@ -48,10 +51,8 @@ const SpeakersComponent = () => {
             .map((speaker) => (
               <Speaker
                 key={speaker.id}
-                {...speaker}
-                onFavoriteClicked={() =>
-                  onToggleFavoriteSpeakerHandler(speaker)
-                }
+                speaker={speaker}
+                onFavoriteClicked={onToggleFavoriteSpeakerHandler}
               />
             ))}
       </div>
