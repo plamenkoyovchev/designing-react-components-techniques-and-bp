@@ -6,7 +6,7 @@ import Speaker from "../Speaker/Speaker";
 
 const SpeakersComponent = () => {
   const [speakersQuery, setSpeakersQuery] = useState("");
-  const { records: speakers, loading, error, put } = useContext(DataContext);
+  const { records: speakers, loading, put } = useContext(DataContext);
 
   const message = "";
 
@@ -43,7 +43,6 @@ const SpeakersComponent = () => {
         setSpeakersQuery={setSpeakersQuery}
       />
       {loading && <h3>Loading...</h3>}
-      {error && <h3>{error}</h3>}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-12">
         {speakers &&
           speakers
