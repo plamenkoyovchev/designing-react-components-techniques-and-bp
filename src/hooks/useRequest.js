@@ -38,10 +38,10 @@ const useRequest = (baseUrl, pathName) => {
         payload: record,
       });
       await axios.put(`${baseUrl}/${pathName}/${record.id}`, record);
-    } catch {
+    } catch(e) {
       dispatch({
         type: actionTypes.UPDATE_FAILED,
-        payload: "Unable to update record",
+        payload: e,
       });
 
       toast.dark("Unable to update record");
