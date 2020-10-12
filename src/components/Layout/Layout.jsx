@@ -8,6 +8,8 @@ import {
   ThemeProvider,
 } from "../../contexts/ThemeContext";
 
+import { ToastContainer } from "react-toastify";
+
 const LayoutComponent = ({ children }) => {
   const { theme } = useContext(ThemeContext);
   const classValue =
@@ -17,6 +19,7 @@ const LayoutComponent = ({ children }) => {
 
   return (
     <div className={classValue}>
+      <ToastContainer position="top-left" />
       <div className="mx-4 my-3">
         <Header />
         <Menu />
