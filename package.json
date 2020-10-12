@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "fakeapi": "json-server --watch db.json --port 3004 --delay 500"
+    "fakeapi": "json-server --watch db.json --port 3004 --delay 3000"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "next": "^9.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-toastify": "^6.0.9",
     "recompose": "^0.30.0"
   },
   "devDependencies": {
