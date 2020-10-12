@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useReducer, useEffect } from "react";
+import { toast } from "react-toastify";
 import { actionTypes } from "../store/request/actions";
 import requestReducer from "../store/request/reducer";
 
@@ -42,6 +43,8 @@ const useRequest = (baseUrl, pathName) => {
         type: actionTypes.UPDATE_FAILED,
         payload: "Unable to update record",
       });
+
+      toast.dark("Unable to update record");
     }
   };
 
