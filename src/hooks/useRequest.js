@@ -32,11 +32,11 @@ const useRequest = (baseUrl, pathName) => {
 
   const put = async (record) => {
     try {
-      await axios.put(`${baseUrl}/${pathName}/${record.id}`, record);
-      dispatch({
+       dispatch({
         type: actionTypes.UPDATE_SUCCESS,
         payload: record,
       });
+      await axios.put(`${baseUrl}/${pathName}/${record.id}`, record);
     } catch {
       dispatch({
         type: actionTypes.UPDATE_FAILED,

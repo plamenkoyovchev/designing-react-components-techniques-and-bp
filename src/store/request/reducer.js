@@ -36,12 +36,14 @@ const requestReducer = (state, action) => {
 
             return {
                 ...state,
+                prevRecords: records,
                 records: newRecords,
                 error: ''
             };
         case actionTypes.UPDATE_FAILED:
             return {
                 ...state,
+                records: state.prevRecords,
                 error: action.payload
             };
         default:
